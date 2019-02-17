@@ -39,18 +39,6 @@ public class SetupTestDriver {
         this.driver.get(baseUrl);
     }
 
-    public String getOs() {
-        return this.os;
-    }
-
-    public String getBrowser() {
-        return this.browser;
-    }
-
-    public String getBaseUrl() {
-        return this.baseUrl;
-    }
-
     public WebDriver getDriver() {
         return this.driver;
     }
