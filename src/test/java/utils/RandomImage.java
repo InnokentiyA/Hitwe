@@ -7,10 +7,6 @@ import java.io.IOException;
 
 public class RandomImage{
 
-    public static void main(String[] args) {
-        System.out.println(generate(24,23));
-    }
-
     public static String generate(int width, int height){
         String filePath = null;
         BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);

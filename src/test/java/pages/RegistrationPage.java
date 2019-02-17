@@ -11,28 +11,27 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class RegistrationPage {
 
     private WebDriver driver;
-
     public RegistrationPage(WebDriver driver) {
         this.driver = driver;
     }
 
     @FindBy(xpath = "//input[@name='name']")
-    WebElement nameInput;
+    private WebElement nameInput;
 
     @FindBy(xpath = "//input[@name='email']")
-    WebElement emailInput;
+    private WebElement emailInput;
 
     @FindBy(xpath = "//select[@name='gender']")
-    WebElement genderSelect;
+    private WebElement genderSelect;
 
     @FindBy(xpath = "//select[@name='age']")
-    WebElement ageSelect;
+    private WebElement ageSelect;
 
     @FindBy(xpath = "//button[text() = 'Зарегистрироваться']")
-    WebElement regButton;
+    private WebElement regButton;
 
     @FindBy(className = "interstial-close")
-    WebElement alertClose;
+    private WebElement alertClose;
 
     public void registration(User user) {
         WebDriverWait wait = new WebDriverWait(driver, 20);

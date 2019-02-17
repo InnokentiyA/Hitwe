@@ -11,26 +11,26 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.RandomImage;
 
 public class ProfilePage {
-    private static WebDriver driver;
 
+    private static WebDriver driver;
     public ProfilePage(WebDriver driver) {
         this.driver = driver;
     }
 
     @FindBy(xpath = "//*[@id='content']//div[@class = 'prof_add_avatar']")
-    WebElement addPhoto;
+    private WebElement addPhoto;
 
     @FindBy(xpath = "//*[@id='photo' and @type = 'file']")
-    WebElement uploadImg;
+    private WebElement uploadImg;
 
     @FindBy(xpath = "//a[text()='Поехали!']")
-    WebElement goButton;
+    private WebElement goButton;
 
     @FindBy(xpath = "//div[@class = 'prof-name']")
-    WebElement userName;
+    private WebElement userName;
 
     @FindBy(xpath = "//div[@class= 'loading_indicator']")
-    WebElement loadIndicator;
+    private WebElement loadIndicator;
 
     public void loadImage() {
         Wait wait = new WebDriverWait(driver, 25).ignoring(NoSuchElementException.class);

@@ -13,9 +13,9 @@ public class DatingSiteTest {
     private static WebDriver driver;
 
     @BeforeClass
-    @Parameters({"os", "browser"})
-    public void setUp(String os, String browser) {
-        SetupTestDriver setupTestDriver = new SetupTestDriver(os, browser, "https://hitwe.com/landing/inter2?p=15276");
+    @Parameters({"os", "browser", "url"})
+    public void setUp(String os, String browser, String baseUrl) {
+        SetupTestDriver setupTestDriver = new SetupTestDriver(os, browser, baseUrl);
         driver = setupTestDriver.getDriver();
     }
 

@@ -2,6 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Tests" verbose="1" parallel="tests">
+    <parameter name="url" value="https://hitwe.com/landing/inter2?p=15276"/>
     <parameter name="os" value="windows"/>
 
     <test name="Tests on Chrome" preserve-order="true" group-by-instances="true">
