@@ -22,8 +22,8 @@ public class DatingSiteTest {
     @DataProvider(name = "users")
     public Object[][] createUser() {
         return new Object[][] {
-                { new User("Testmale", "testmale@testmail.com", "m", "23") },
-                { new User("Testfemale", "testfemale@testmail.com", "f", "19") }
+                { new User("Testmale", "testmale1702@testmail.com", "m", "24") },
+                { new User("Testfemale", "testfemale1702@testmail.com", "f", "19") }
         };
     }
 
