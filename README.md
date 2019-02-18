@@ -1,3 +1,3 @@
 # Hitwe
-Ensure that email for registration in @data provider is not taken by someone else.
+Choose browser.
 Run tests.xml
