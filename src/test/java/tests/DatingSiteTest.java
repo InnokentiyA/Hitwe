@@ -8,6 +8,7 @@ import org.testng.annotations.*;
 import pages.MainPage;
 import pages.ProfilePage;
 import pages.RegistrationPage;
+import utils.Randomizer;
 
 public class DatingSiteTest {
     private static WebDriver driver;
@@ -22,8 +23,7 @@ public class DatingSiteTest {
     @DataProvider(name = "users")
     public Object[][] createUser() {
         return new Object[][] {
-                { new User("Testmale", "testmale1702@testmail.com", "m", "24") },
-                { new User("Testfemale", "testfemale1702@testmail.com", "f", "19") }
+                { new User("Testfemale", Randomizer.generateEmail(), "f", "19") }
         };
     }
 
@@ -31,11 +31,12 @@ public class DatingSiteTest {
     public void registration(User user) {
         MainPage mainPage = PageFactory.initElements(driver, MainPage.class);
         mainPage.step("Кто тебе нравится?", "Девушки", "")
-                .step("Выбери цвет волос", "Темные", "f")
-                .step("Выбери цвет глаз", "Светлые", "f")
+                .step("Выбери цвет волос", "Темные", user.getGender())
+                .step("Выбери цвет глаз", "Светлые", user.getGender())
                 .step("Выбери фигуру", "Стройная", "");
         RegistrationPage registrationPage = PageFactory.initElements(driver, RegistrationPage.class);
         registrationPage.registration(user);
+        registrationPage.handleAlert();
         Assert.assertEquals(PageFactory.initElements(driver, ProfilePage.class).getUserName(), user.getName());
     }
 

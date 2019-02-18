@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class MainPage {
 
-    String buttonXpath = "//h2[text() = '%s']/following-sibling::*//a[text()='%s' and contains(@data-next, '%s')]";
+    private String buttonXpath = "//h2[text() = '%s']/following-sibling::*//a[text()='%s' and contains(@data-next, '%s')]";
 
     private WebDriver driver;
 

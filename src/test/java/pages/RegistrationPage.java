@@ -42,6 +42,10 @@ public class RegistrationPage {
         new Select(genderSelect).selectByValue(user.getGender());
         new Select(ageSelect).selectByValue(user.getAge());
         regButton.submit();
+    }
+
+    public void handleAlert(){
+        WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.visibilityOf(alertClose));
         alertClose.click();
     }

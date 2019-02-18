@@ -9,17 +9,10 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.util.concurrent.TimeUnit;
 
-public class SetupTestDriver {
-    private WebDriver driver = null;
-    private String browser;
-    private String baseUrl;
-    private String os ;
+class SetupTestDriver {
+    private WebDriver driver;
 
-    public SetupTestDriver(String os, String browser, String baseUrl)  {
-        this.browser = browser;
-        this.os = os;
-        this.baseUrl = baseUrl;
-
+    SetupTestDriver(String os, String browser, String baseUrl)  {
         Platform platform = Platform.fromString(os.toUpperCase());
         if(browser.equalsIgnoreCase("chrome")) {
             System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
@@ -33,13 +26,12 @@ public class SetupTestDriver {
             firefoxOptions.setCapability("platform", platform);
             this.driver = new FirefoxDriver();
         }
-
         this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         this.driver.manage().window().maximize();
         this.driver.get(baseUrl);
     }
 
-    public WebDriver getDriver() {
+    WebDriver getDriver() {
         return this.driver;
     }
 }

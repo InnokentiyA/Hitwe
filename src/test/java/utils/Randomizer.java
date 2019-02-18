@@ -1,13 +1,16 @@
 package utils;
 
+import org.apache.commons.text.CharacterPredicates;
+import org.apache.commons.text.RandomStringGenerator;
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class RandomImage{
+public class Randomizer {
 
-    public static String generate(int width, int height){
+    public static String generateImage(int width, int height){
         String filePath = null;
         BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         File f;
@@ -29,5 +32,14 @@ public class RandomImage{
             System.out.println("Error: " + e);
         }
         return filePath;
+    }
+
+    public static String generateEmail() {
+        RandomStringGenerator randomStringGenerator =
+                new RandomStringGenerator.Builder()
+                        .withinRange('0', 'z')
+                        .filteredBy(CharacterPredicates.LETTERS, CharacterPredicates.DIGITS)
+                        .build();
+        return randomStringGenerator.generate(12).concat("@testmail.com");
     }
 }
